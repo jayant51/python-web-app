@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<p>
+    PO Data
+
+    {% for row in podata %}
+<div class='post'>
+    <li>
+        <p>{{ row }}</p>
+    </li>
+
+</div>
+{% endfor %}
+
+
+</p>
+{% endblock content %}

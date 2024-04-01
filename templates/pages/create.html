@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1>{% block title %} Add new PO Details {% endblock %}</h1>
+<form method="post">
+    <div class="container">
+
+        <!-- 
+        <div class="col-25"><label style="color:rgb(57, 57, 142); font-weight:200;"
+                for="ponum"><I>CustomerPONo</I></label></div>
+        <div class="col-25">
+            <input type="text" id="ponum" name="CustomerPONo" placeholder="009324 (auto generated)"
+                value="{{ request.form['CustomerPONo'] }}" readonly="readonly" disabled="disabled"></input>
+        </div>
+
+
+        <div class="col-25"><label style="color:rgb(57, 57, 142); font-weight:200;"
+                for="CustomerPOLineNo"><I>CustomerPOLineNo</I></label>
+        </div>
+        <div class="col-25">
+            <input type="text" id="CustomerPOLineNo" name="CustomerPOLineNo" placeholder="2 (auto generated)"
+                value="{{ request.form['CustomerPOLineNo'] }}" readonly="readonly" disabled="disabled"></input>
+        </div>
+        -->
+
+        <div class="col-25"><label for="CustomerItem">Item Ordered</label></div>
+        <div class="col-75">
+            <input type="text" id="CustomerItem" name="CustomerItem" placeholder="keyboard US 101"
+                value="{{ request.form['CustomerItem'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="ItemDesc">Item Description</label></div>
+        <div class="col-75">
+            <input type="text" id="ItemDesc" name="ItemDesc" placeholder="Laptop 14"
+                value="{{ request.form['ItemDesc'] }}" readonly="readonly" disabled="disabled"></input>
+        </div>
+
+        <div class="col-25"><label for="orderNum">Order Number</label></div>
+        <div class="col-25">
+            <input type="text" id="orderNum" name="orderNum" value="PO_2024020903" placeholder="PO_2024020903"
+                value="{{ request.form['orderNum'] }}" readonly="readonly" disabled="disabled"></input>
+        </div>
+
+        <div class="col-25"><label for="custPONum">CustomerPONumber</label></div>
+        <div class="col-25">
+            <input type="text" id="custPONum" name="custPONum" value="C123456-4" placeholder="C123456-4"
+                value="{{ request.form['custPONum'] }}" readonly="readonly" disabled="disabled"></input>
+        </div>
+
+
+        <div class="col-25"><label for="account">Account Number</label></div>
+        <div class="col-75">
+            <input type="text" id="account" name="account" placeholder="8761 3488 1734 1522"
+                value="{{ request.form['account'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="firstn">Customer First Name</label></div>
+        <div class="col-15">
+            <input type="text" id="firstn" name="firstn" placeholder="John" value="John"
+                value="{{ request.form['firstn'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="middlen">Middle Name</label></div>
+        <div class="col-15">
+            <input type="text" id="middlen" name="middlen" placeholder="M." value="M."
+                value="{{ request.form['middlen'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="lastn">Last Name</label></div>
+        <div class="col-15">
+            <input type="text" id="lastn" name="lastn" placeholder="Doe" value="Doe"
+                value="{{ request.form['lastn'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="sAddress">Customer Street Address</label></div>
+        <div class="col-15">
+            <input type="text" id="sAddress" name="sAddress" value="542 W. 15th Street" placeholder="542 W. 15th Street"
+                value="{{ request.form['sAddress'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="state">City / State / Country</label></div>
+        <div class="col-15">
+            <input type="text" id="state" name="state" value="Buffalo, NY, USA" placeholder="Buffalo, NY, USA"
+                value="{{ request.form['state'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="zip">Zip</label></div>
+        <div class="col-15">
+            <input type="text" id="zip" name="zip" value="10001" placeholder="10001"
+                value="{{ request.form['zip'] }}"></input>
+        </div>
+
+
+        <div class="col-25"><label for="Email">Customer Email</label></div>
+        <div class="col-15">
+            <input type="text" id="Email" name="Email" placeholder="john@example.com"
+                value="{{ request.form['Email'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="mPhone">Mobile Phone</label></div>
+        <div class="col-15">
+            <input type="text" id="mPhone" name="mPhone" placeholder="(510) 234 7284"
+                value="{{ request.form['mPhone'] }}"></input>
+        </div>
+
+        <div class="col-15"><label for="dPhone">Day Phone</label></div>
+        <div class="col-15">
+            <input type="text" id="dPhone" name="dPhone" placeholder="(510) 744 9874)"
+                value="{{ request.form['dPhone'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="nameoncard">Name (on credit card)</label></div>
+        <div class="col-75">
+            <input type="text" id="nameoncard" name="nameoncard" placeholder="John M. Doe"
+                value="{{ request.form['nameoncard'] }}"></input>
+        </div>
+
+
+        <div class="col-25"><label for="expmonth">Card Expiration Date: Month</label></div>
+        <div class="col-25">
+            <SELECT NAME="expmonth" value="{{ request.form['expmonth'] }}">
+                <OPTION VALUE="" SELECTED>--Month--
+                <OPTION VALUE="01">January (01)
+                <OPTION VALUE="02">February (02)
+                <OPTION VALUE="03">March (03)
+                <OPTION VALUE="04">April (04)
+                <OPTION VALUE="05">May (05)
+                <OPTION VALUE="06">June (06)
+                <OPTION VALUE="07">July (07)
+                <OPTION VALUE="08">August (08)
+                <OPTION VALUE="09">September (09)
+                <OPTION VALUE="10">October (10)
+                <OPTION VALUE="11">November (11)
+                <OPTION VALUE="12">December (12)
+            </SELECT>
+
+        </div>
+
+
+        <div class="col-25"><label for="expyear">Year</label></div>
+        <div class="col-25">
+            <SELECT NAME="expyear" value="{{ request.form['expyear'] }}">
+                <OPTION VALUE="" SELECTED>--Year--
+                <OPTION VALUE="2024">2024
+                <OPTION VALUE="2025">2025
+                <OPTION VALUE="2026">2026
+                <OPTION VALUE="2027">2027
+                <OPTION VALUE="2028">2028
+                <OPTION VALUE="2029">2029
+                <OPTION VALUE="2030">2030
+                <OPTION VALUE="2031">2031
+                <OPTION VALUE="2032">2032
+                <OPTION VALUE="2034">2034
+                <OPTION VALUE="2035">2035
+            </SELECT>
+
+        </div>
+
+        <div class="col-25"><label for="dcode">DeliveryCode</label></div>
+        <div class="col-25">
+            <input type="text" id="dcode" name="dcode" value="Collect" placeholder="Collect"
+                value="{{ request.form['dcode'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="dmethod">DeliveryMethod</label></div>
+        <div class="col-25">
+            <input type="text" id="dmethod" name="dmethod" value="SHP" placeholder="SHP"
+                value="{{ request.form['dmethod'] }}"></input>
+        </div>
+
+
+
+
+        <div class="col-25"><label for="CarrierAccountNo">CarrierAccountNo</label></div>
+        <div class="col-25">
+            <input type="text" id="CarrierAccountNo" name="CarrierAccountNo" placeholder="1234"
+                value="{{ request.form['CarrierAccountNo'] }}"></input>
+        </div>
+
+        <div class="col-25">
+            <label for="CarrierServiceCode">CarrierServiceCode</label>
+        </div>
+        <div class="col-25">
+            <input type="text" id="CarrierServiceCode" name="CarrierServiceCode" value="UPS" placeholder="UPS"
+                value="{{ request.form['CarrierServiceCode'] }}"></input>
+        </div>
+
+
+
+        <div class="col-25"><label for="uPrice">UnitPrice</label></div>
+        <div class="col-25">
+            <input type="text" id="uPrice" name="uPrice" placeholder="100" value="{{ request.form['uPrice'] }}"></input>
+        </div>
+
+        <div class="col-25">
+            <label for="lockedPrice">IsPrice Locked</label>
+        </div>
+        <div class="col-25">
+            <input type="text" id="lockedPrice" name="lockedPrice" value="Y" placeholder="Y"
+                value="{{ request.form['lockedPrice'] }}"></input>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-25">
+                <label for="comments">Comments</label>
+            </div>
+            <div class="col-75">
+                <textarea id="subject" name="subject"
+                    placeholder="This Order placed by customer is for complete fulfilment and it is additional item after previous order"
+                    style="height:100px"></textarea>
+            </div>
+        </div>
+        <div class="col-75"><input type="submit" value="Submit"></div>
+        <div class="col-25"> </div><input type="cancel" value="Cancel">
+    </div>
+
+    </div>
+
+
+</form>
+{% endblock %}

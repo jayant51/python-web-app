@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+
+
+<h1>{% block title %} Add new PO Details {% endblock %}</h1>
+<div class="container">
+    <form method="post">
+
+
+        <div class="col-25">
+            <label for="ponum">CustomerPONo</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="ponum" name="CustomerPONo" placeholder="009324"
+                value="{{ request.form['CustomerPONo'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="ponum">CustomerLinePONo</label></div>
+        <div class="col-75">
+            <input type="text" id="CustomerLinePONo" name="CustomerLinePONo" placeholder="2"
+                value="{{ request.form['CustomerLinePONo'] }}"></input>
+        </div>
+
+
+        <div class="col-25"><label for="ponum">CustomerItem</label></div>
+        <div class="col-75">
+            <input type="text" id="CustomerItem" name="CustomerItem" placeholder="keyboard US 101"
+                value="{{ request.form['CustomerItem'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="ItemDesc">Item Description</label></div>
+        <div class="col-75">
+            <input type="text" id="ItemDesc" name="ItemDesc"
+                placeholder="This item includes keyboard with cord and usb connector"
+                value="{{ request.form['ItemDesc'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="ItemDesc">Full Name</label></div>
+        <div class="col-75">
+            <input type="text" id="ItemDesc" name="ItemDesc" placeholder="John M. Doe"
+                value="{{ request.form['ItemDesc'] }}"></input>
+        </div>
+
+
+        <!-- 
+        <div class="col-25"><label for="fname">Billing/Shipping Address</label></div>
+        <div class="col-75">
+            <hr />
+        </div>
+    -->
+
+
+        <!-- 
+
+        <div class="col-25"><label for="ItemDesc">Full Name</label></div>
+        <div class="col-75">
+            <input type="text" id="ItemDesc" name="ItemDesc"
+                placeholder="This item includes keyboard with cord and usb connector"
+                value="{{ request.form['ItemDesc'] }}"></input>
+        </div>
+
+        <div class="col-25"><label for="fname"></i> Full Name</label></div>
+        <div class="col-75"><input type="text" id="fname" name="firstname" placeholder="John M. Doe"></div>
+        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+        <input type="text" id="email" name="email" placeholder="john@example.com"><br>
+        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+        <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"><br>
+        <label for="city"><i class="fa fa-institution"></i> City</label>
+        <input type="text" id="city" name="city" placeholder="New York"><br>
+
+        <div class="row">
+            <div class="col-25">
+                <h3>Billing/Shipping Address</h3>
+                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="John M. Doe"><br>
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input type="text" id="email" name="email" placeholder="john@example.com"><br>
+                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"><br>
+                <label for="city"><i class="fa fa-institution"></i> City</label>
+                <input type="text" id="city" name="city" placeholder="New York"><br>
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="NY">
+                    </div>
+                    <div class="col-50">
+                        <label for="zip">Zip</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <B>Name (on your credit card):</B>
+        <INPUT NAME="BillingName" TYPE=text SIZE=45 MAXLENGTH=60>
+
+        <P>
+            <B>Account Number:</B>
+            <INPUT NAME="Cardnumber" TYPE=TEXT SIZE=19 MAXLENGTH=40>
+            <I>(accept only MasterCard, Visa, &amp; AmEx)</I>
+
+            <BR><B>Expiration Date:</B>
+            <SELECT NAME="ExpiresMonth">
+                <OPTION VALUE="" SELECTED>--Month--
+                <OPTION VALUE="01">January (01)
+                <OPTION VALUE="02">February (02)
+                <OPTION VALUE="03">March (03)
+                <OPTION VALUE="04">April (04)
+                <OPTION VALUE="05">May (05)
+                <OPTION VALUE="06">June (06)
+                <OPTION VALUE="07">July (07)
+                <OPTION VALUE="08">August (08)
+                <OPTION VALUE="09">September (09)
+                <OPTION VALUE="10">October (10)
+                <OPTION VALUE="11">November (11)
+                <OPTION VALUE="12">December (12)
+            </SELECT> /
+            <SELECT NAME="ExpiresYear">
+                <OPTION VALUE="" SELECTED>--Year--
+                <OPTION VALUE="02">2013
+                <OPTION VALUE="03">2014
+                <OPTION VALUE="04">2015
+                <OPTION VALUE="05">2016
+                <OPTION VALUE="06">2017
+                <OPTION VALUE="07">2018
+                <OPTION VALUE="08">2019
+                <OPTION VALUE="09">2020
+                <OPTION VALUE="10">2021
+                <OPTION VALUE="11">2022
+                <OPTION VALUE="12">2023
+                <OPTION VALUE="13">2024
+            </SELECT>
+            <BR><B>Amount to pay:</B> <TT>$</TT>
+            <INPUT NAME="ChargeAmount" TYPE=TEXT SIZE=20>
+
+
+
+
+        <div class="row">
+            <P><INPUT TYPE=RESET name="Reset" VALUE="Clear Form">
+                <button type="submit">Submit</button>
+        </div>
+
+</div>
+</form>
+
+
+
+
+<div class="container">
+
+
+
+
+    <div class="row">
+        <div class="col-25">
+            <label for="ponum">CustomerPONo</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="ponum" name="CustomerPONo" placeholder="1"
+                value="{{ request.form['title'] }}"></input>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-25">
+            <label for="fname">First Name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="lname">Last Name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="country">Country</label>
+        </div>
+        <div class="col-75">
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Submit">
+    </div>
+-->
+    </form>
+</div>
+{% endblock %}
