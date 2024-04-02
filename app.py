@@ -430,7 +430,7 @@ def create():
     connection = create_connection()
     try:
 
-        with open("./board/schema/db_schema.sql") as f:
+        with open("./schema/db_schema.sql") as f:
             connection.executescript(f.read())
 
         cursor = connection.cursor()
