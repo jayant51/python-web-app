@@ -503,8 +503,9 @@ def create_connection():
     print("create a database connection to a database that resides in the memory")
 
     try:
-        # conn = sqlite3.connect(":memory:")
-        conn = sqlite3.connect(r"./schema/supplychain.db")
+        if conn is None:
+            conn = sqlite3.connect(":memory:")
+        # conn = sqlite3.connect(r"./schema/supplychain.db")
         print(sqlite3.version)
     except Error as e:
         print(e)
