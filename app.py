@@ -79,7 +79,7 @@ def createOrderLines(poLns):
 def createOrderLine(poLn):
 
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -231,7 +231,7 @@ def createLineItem(lineItem):
 def createLinePriceInfo(priceInfo):
 
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -306,7 +306,7 @@ def init():
 def getpo():
 
     # conn = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
     try:
         cur = connection.cursor()
         cur.execute(
@@ -422,7 +422,7 @@ def keys(d, c=[]):
 @app.route("/create/", methods=("GET", "POST"))
 def create():
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
     try:
 
         # with open("./schema/db_schema.sql") as f:
