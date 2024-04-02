@@ -335,9 +335,7 @@ def getpo():
         print("--------------------------------------")
         print(json_db_po)
 
-        with open(
-            "/Users/jayantkulkarni/Desktop/atos/python_code_examples/board/schema/createOrder.json"
-        ) as podata:
+        with open("./schema/createOrder.json") as podata:
             std_po = json.loads(podata.read())
         keylist = std_po.keys()
 
@@ -347,9 +345,7 @@ def getpo():
 
         # get file jason #
         C = []
-        with open(
-            "/Users/jayantkulkarni/Desktop/atos/python_code_examples/board/schema/createOrder.json"
-        ) as podata:
+        with open("./schema/createOrder.json") as podata:
             std_po = json.loads(podata.read())
         print(std_po)
         keys(
