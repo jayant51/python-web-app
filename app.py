@@ -270,14 +270,16 @@ def init():
     cursor = connection.cursor()
     try:
 
-        with open("./schema/db_schema.sql") as f:
-            cursor.executescript(f.read())
+        with open("./schema/db_schema.sql") as schema:
+            cursor.executescript(schema.read())
 
+        print(cursor._last_executed)
         # cursor = connection.cursor()
         print("insert into PurchaseOrder")
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
         connection.commit()
 
+        """ 
         poLns = orderlines_obj()
         createOrderLines(poLns)
 
@@ -292,6 +294,7 @@ def init():
 
         priceInfo = linepriceinfo_obj()
         createLinePriceInfo(priceInfo)
+        """
 
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
@@ -499,10 +502,9 @@ def create():
 def create_connection():
     print("create a database connection to a database that resides in the memory")
 
-    conn = None
     try:
         # conn = sqlite3.connect(":memory:")
-        conn = sqlite3.connect(r"./supplychain.db")
+        conn = sqlite3.connect(r"./schema/supplychain.db")
         print(sqlite3.version)
     except Error as e:
         print(e)
