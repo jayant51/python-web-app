@@ -36,7 +36,8 @@ def po():
 
 def createOrderLines(poLns):
 
-    connection = sqlite3.connect("supplychain.db")
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -78,7 +79,8 @@ def createOrderLines(poLns):
 
 def createOrderLine(poLn):
 
-    connection = sqlite3.connect("supplychain.db")
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -135,7 +137,8 @@ def createOrderLine(poLn):
 
 def createPersonInfo(info):
 
-    connection = sqlite3.connect("supplychain.db")
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -188,7 +191,8 @@ def createPersonInfo(info):
 
 def createLineItem(lineItem):
 
-    connection = sqlite3.connect("supplychain.db")
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -227,7 +231,8 @@ def createLineItem(lineItem):
 
 def createLinePriceInfo(priceInfo):
 
-    connection = sqlite3.connect("supplychain.db")
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -296,8 +301,8 @@ def init():
 @app.route("/getpo")
 def getpo():
 
-    conn = sqlite3.connect("supplychain.db")
-
+    # conn = sqlite3.connect("supplychain.db")
+    connection = create_connection()
     try:
         cur = conn.cursor()
         cur.execute(
