@@ -13,7 +13,8 @@ from sqlite3 import Error
 import json
 import os
 
-
+conn = None
+count = 0
 app = Flask(__name__)
 
 
@@ -501,7 +502,8 @@ def create():
 
 def create_connection():
     print("create a database connection to a database that resides in the memory")
-
+    count = count + 1
+    # rc = sqlite3_open("file::memory:?cache=shared", &db);
     try:
         if conn is None:
             conn = sqlite3.connect(":memory:")
@@ -509,7 +511,7 @@ def create_connection():
         print(sqlite3.version)
     except Error as e:
         print(e)
-
+    print("count = " + str(count))
     return conn
 
 
