@@ -267,6 +267,7 @@ def createLinePriceInfo(priceInfo):
 def init():
 
     # connection = sqlite3.connect("supplychain.db")
+    global connection
     connection = create_connection()
     cursor = connection.cursor()
     try:
@@ -418,6 +419,7 @@ def keys(d, c=[]):
 @app.route("/create/", methods=("GET", "POST"))
 def create():
     # connection = sqlite3.connect("supplychain.db")
+    global connection
     connection = create_connection()
     try:
 
@@ -440,7 +442,7 @@ def create():
             priceinfo = linepriceinfo_obj
 
             orderlines.OrderNo = request.form["orderNum"]
-            # orderlines.CustomerPONo = request.form["custPONum"]
+            orderlines.CustomerPONo = request.form["custPONum"]
             createOrderLines(orderlines)
 
             orderline.DeliveryCode = request.form["dcode"]
