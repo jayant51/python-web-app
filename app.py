@@ -9,10 +9,11 @@ from flask import (
     redirect,
 )
 import sqlite3
+from sqlite3 import Error
 import json
 import os
 
-# bp = Blueprint("pages", __name__)
+conn = None
 
 
 app = Flask(__name__)
@@ -261,8 +262,8 @@ def createLinePriceInfo(priceInfo):
 @app.route("/init")
 def init():
 
-    connection = sqlite3.connect("supplychain.db")
-
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
     try:
         cursor = connection.cursor()
         print("insert into PurchaseOrder")
@@ -405,6 +406,21 @@ def keys(d, c=[]):
     ]
 
     # result = list(map(".".join, keys(d)))
+
+
+def create_connection():
+    """create a database connection to a database that resides
+    in the memory
+    """
+    conn = None
+    try:
+        conn = sqlite3.connect(":memory:")
+        print(sqlite3.version)
+    except Error as e:
+        print(e)
+    finally:
+        if conn:
+            conn.close()
 
 
 @app.route("/create/", methods=("GET", "POST"))
