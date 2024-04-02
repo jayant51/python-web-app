@@ -274,7 +274,6 @@ def init():
         with open("./schema/db_schema.sql") as schema:
             cursor.executescript(schema.read())
 
-        print(cursor._last_executed)
         # cursor = connection.cursor()
         print("insert into PurchaseOrder")
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
