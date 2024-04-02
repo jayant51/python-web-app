@@ -423,9 +423,7 @@ def create_connection():
         print(sqlite3.version)
     except Error as e:
         print(e)
-    finally:
-        if conn:
-            conn.close()
+
     return conn
 
 
