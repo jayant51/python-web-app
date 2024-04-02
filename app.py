@@ -426,8 +426,8 @@ def create_connection():
 
 @app.route("/create/", methods=("GET", "POST"))
 def create():
-    connection = sqlite3.connect("supplychain.db")
-
+    # connection = sqlite3.connect("supplychain.db")
+    connection = create_connection()
     try:
 
         with open("./board/schema/db_schema.sql") as f:
