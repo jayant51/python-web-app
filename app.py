@@ -456,7 +456,7 @@ def create():
             createOrderLine(orderline)
 
             lineitem.CustomerItem = request.form["CustomerItem"]
-            lineitem.ItemDesc = request.form["ItemDesc"]  ##Laptop 14
+            # lineitem.ItemDesc = request.form["ItemDesc"]  ##Laptop 14
             createLineItem(lineitem)
 
             priceinfo.UnitPrice = request.form["uPrice"]
