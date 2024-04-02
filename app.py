@@ -388,12 +388,13 @@ def getpo():
         # print(std_po["OrderLines"])
 
         # print(std_json_keys)
+        cur.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
     finally:
         if connection:
-            cur.close()
             connection.close()
+    return
 
     # return render_template("pages/po_entry.html", podata=rows)
     return std_po
