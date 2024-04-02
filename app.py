@@ -3,6 +3,7 @@ from flask import (
     Blueprint,
     render_template,
     jsonify,
+    request,
     url_for,
     flash,
     redirect,
@@ -33,9 +34,10 @@ def po():
 
 
 def createOrderLines(poLns):
-    try:
-        connection = sqlite3.connect("supplychain.db")
 
+    connection = sqlite3.connect("supplychain.db")
+
+    try:
         cursor = connection.cursor()
         records = cursor.execute("select poid from PurchaseOrder")
         poid_val = 1
@@ -74,9 +76,10 @@ def createOrderLines(poLns):
 
 
 def createOrderLine(poLn):
-    try:
-        connection = sqlite3.connect("supplychain.db")
 
+    connection = sqlite3.connect("supplychain.db")
+
+    try:
         cursor = connection.cursor()
         records = cursor.execute("select poid, OrderLinesId from OrderLines")
         poid_val = 1
@@ -130,9 +133,10 @@ def createOrderLine(poLn):
 
 
 def createPersonInfo(info):
-    try:
-        connection = sqlite3.connect("supplychain.db")
 
+    connection = sqlite3.connect("supplychain.db")
+
+    try:
         cursor = connection.cursor()
         records = cursor.execute("select poid, OrderLinesId from OrderLines")
         poid_val = 1
@@ -182,9 +186,10 @@ def createPersonInfo(info):
 
 
 def createLineItem(lineItem):
-    try:
-        connection = sqlite3.connect("supplychain.db")
 
+    connection = sqlite3.connect("supplychain.db")
+
+    try:
         cursor = connection.cursor()
         records = cursor.execute("select poid, OrderLineId from OrderLine")
         poid_val = 1
@@ -220,9 +225,10 @@ def createLineItem(lineItem):
 
 
 def createLinePriceInfo(priceInfo):
-    try:
-        connection = sqlite3.connect("supplychain.db")
 
+    connection = sqlite3.connect("supplychain.db")
+
+    try:
         cursor = connection.cursor()
         records = cursor.execute("select poid, OrderLineId from OrderLine")
         poid_val = 1
@@ -255,9 +261,9 @@ def createLinePriceInfo(priceInfo):
 @app.route("/init")
 def init():
 
-    try:
-        connection = sqlite3.connect("supplychain.db")
+    connection = sqlite3.connect("supplychain.db")
 
+    try:
         cursor = connection.cursor()
         print("insert into PurchaseOrder")
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
@@ -289,9 +295,9 @@ def init():
 @app.route("/getpo")
 def getpo():
 
-    try:
+    conn = sqlite3.connect("supplychain.db")
 
-        conn = sqlite3.connect("supplychain.db")
+    try:
         cur = conn.cursor()
         cur.execute(
             # " select * from PurchaseOrder po, OrderLines ols, OrderLines ol, personInfo pf where po.poid = ols.poid and po.poid = ol.poid and ols.OrderLinesId = ol.OrderLinesId and pf.OrderLinesId=ol.OrderLinesId"
@@ -403,10 +409,10 @@ def keys(d, c=[]):
 
 @app.route("/create/", methods=("GET", "POST"))
 def create():
+    connection = sqlite3.connect("supplychain.db")
 
     try:
 
-        connection = sqlite3.connect("supplychain.db")
         with open("./board/schema/db_schema.sql") as f:
             connection.executescript(f.read())
 
