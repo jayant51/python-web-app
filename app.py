@@ -421,6 +421,7 @@ def create_connection():
     finally:
         if conn:
             conn.close()
+    return conn
 
 
 @app.route("/create/", methods=("GET", "POST"))
