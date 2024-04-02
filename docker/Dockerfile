@@ -19,6 +19,8 @@ RUN \
   fi
 
 # Specify the command to run on container start
-CMD [ "python", "-m flask --app board run --port 8081 --debug" ]
+#CMD [ "python", "-m flask --app board run --port 8081 --debug" ]
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8081 --debug"]
+#CMD ["flask", "run", "--host=0.0.0.0", "--port=8081 --debug"]
+
+CMD [ "python", "./app.py" ]
