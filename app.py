@@ -502,7 +502,10 @@ def create():
 
 def create_connection():
     print("create a database connection to a database that resides in the memory")
-    count = count + 1
+    global count
+    global conn
+    count += 1
+
     # rc = sqlite3_open("file::memory:?cache=shared", &db);
     try:
         if conn is None:
