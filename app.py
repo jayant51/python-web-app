@@ -13,8 +13,6 @@ from sqlite3 import Error
 import json
 import os
 
-conn = None
-
 
 app = Flask(__name__)
 
@@ -304,7 +302,7 @@ def getpo():
     # conn = sqlite3.connect("supplychain.db")
     connection = create_connection()
     try:
-        cur = conn.cursor()
+        cur = connection.cursor()
         cur.execute(
             # " select * from PurchaseOrder po, OrderLines ols, OrderLines ol, personInfo pf where po.poid = ols.poid and po.poid = ol.poid and ols.OrderLinesId = ol.OrderLinesId and pf.OrderLinesId=ol.OrderLinesId"
             # "select * from OrderLines ols, OrderLine ol where  ols.OrderLinesId = ol.OrderLinesId"
@@ -393,9 +391,9 @@ def getpo():
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
     finally:
-        if conn:
+        if connection:
             cur.close()
-            conn.close()
+            connection.close()
 
     # return render_template("pages/po_entry.html", podata=rows)
     return std_po
