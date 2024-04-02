@@ -418,7 +418,7 @@ def keys(d, c=[]):
 @app.route("/create/", methods=("GET", "POST"))
 def create():
     # connection = sqlite3.connect("supplychain.db")
-    # connection = create_connection()
+    connection = create_connection()
     try:
 
         # with open("./schema/db_schema.sql") as f:
