@@ -70,9 +70,9 @@ def createOrderLines(poLns):
         cursor.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return
 
 
@@ -128,9 +128,9 @@ def createOrderLine(poLn):
         cursor.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return
 
 
@@ -182,9 +182,9 @@ def createPersonInfo(info):
 
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return
 
 
@@ -222,9 +222,9 @@ def createLineItem(lineItem):
         cursor.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return
 
 
@@ -257,9 +257,9 @@ def createLinePriceInfo(priceInfo):
         cursor.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return
 
 
