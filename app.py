@@ -137,7 +137,7 @@ def createOrderLine(poLn):
 def createPersonInfo(info):
 
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -191,7 +191,7 @@ def createPersonInfo(info):
 def createLineItem(lineItem):
 
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -281,7 +281,7 @@ def init():
 
         poLns = orderlines_obj()
         createOrderLines(poLns)
-        """ 
+
         poLn = orderline_obj()
         createOrderLine(poLn)
 
@@ -293,7 +293,6 @@ def init():
 
         priceInfo = linepriceinfo_obj()
         createLinePriceInfo(priceInfo)
-        """
 
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
