@@ -268,6 +268,10 @@ def init():
     # connection = sqlite3.connect("supplychain.db")
     connection = create_connection()
     try:
+
+        with open("./schema/db_schema.sql") as f:
+            connection.executescript(f.read())
+
         cursor = connection.cursor()
         print("insert into PurchaseOrder")
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
@@ -433,8 +437,8 @@ def create():
     connection = create_connection()
     try:
 
-        with open("./schema/db_schema.sql") as f:
-            connection.executescript(f.read())
+        # with open("./schema/db_schema.sql") as f:
+        #    connection.executescript(f.read())
 
         cursor = connection.cursor()
         if request.method == "POST":
