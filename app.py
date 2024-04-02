@@ -296,7 +296,7 @@ def init():
     return render_template("pages/po_entry.html")
 
 
-@app.route("/getpo")
+@app.route("/getPO")
 def getpo():
 
     # conn = sqlite3.connect("supplychain.db")
@@ -394,12 +394,12 @@ def getpo():
     finally:
         if connection:
             connection.close()
-    return
+    return std_po
 
-    # return render_template("pages/po_entry.html", podata=rows)
-    return str(std_po)
 
-    # return row
+""" 
+# return render_template("pages/po_entry.html", podata=rows)
+"""
 
 
 def keys(d, c=[]):
