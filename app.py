@@ -310,6 +310,7 @@ def getpo():
             # " select * from OrderLines ols, OrderLine ol, LineItem li, LinePriceInfo lipf where  ols.OrderLinesId = ol.OrderLinesId and li.OrderLineId = ol.OrderLineId and li.OrderLineId = lipf.OrderLineId"
             " select * from OrderLines ols, OrderLine ol, LineItem li, LinePriceInfo lipf, PersonInfo pif where  ols.OrderLinesId = ol.OrderLinesId and li.OrderLineId = ol.OrderLineId and li.OrderLineId = lipf.OrderLineId and  ols.OrderLinesId = pif.OrderLinesId"
         )
+        std_po = []
         db_po = []
         rows = cur.fetchall()
         print(rows)
