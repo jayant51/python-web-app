@@ -267,12 +267,13 @@ def init():
 
     # connection = sqlite3.connect("supplychain.db")
     connection = create_connection()
+    cursor = connection.cursor()
     try:
 
         with open("./schema/db_schema.sql") as f:
-            connection.executescript(f.read())
+            cursor.executescript(f.read())
 
-        cursor = connection.cursor()
+        # cursor = connection.cursor()
         print("insert into PurchaseOrder")
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
         connection.commit()
