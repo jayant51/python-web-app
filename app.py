@@ -9,7 +9,6 @@ from flask import (
 )
 import sqlite3
 import json
-import requests
 import os
 
 # bp = Blueprint("pages", __name__)
