@@ -397,7 +397,7 @@ def getpo():
     return
 
     # return render_template("pages/po_entry.html", podata=rows)
-    return std_po
+    return str(std_po)
 
     # return row
 
