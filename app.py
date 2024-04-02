@@ -556,6 +556,8 @@ class linepriceinfo_obj:
 
 
 if __name__ == "__main__":
+    app.debug = os.environ.get("FLASK_DEBUG", True)
+
     port = os.environ.get("FLASK_PORT") or 8080
     port = int(port)
 
