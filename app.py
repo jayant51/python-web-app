@@ -418,20 +418,6 @@ def keys(d, c=[]):
     # result = list(map(".".join, keys(d)))
 
 
-def create_connection():
-    print("create a database connection to a database that resides in the memory")
-
-    conn = None
-    try:
-        # conn = sqlite3.connect(":memory:")
-        conn = sqlite3.connect("supplychain.db")
-        print(sqlite3.version)
-    except Error as e:
-        print(e)
-
-    return conn
-
-
 @app.route("/create/", methods=("GET", "POST"))
 def create():
     # connection = sqlite3.connect("supplychain.db")
@@ -508,6 +494,20 @@ def create():
         if connection:
             connection.close()
     return render_template("pages/create.html")
+
+
+def create_connection():
+    print("create a database connection to a database that resides in the memory")
+
+    conn = None
+    try:
+        # conn = sqlite3.connect(":memory:")
+        conn = sqlite3.connect(r"./supplychain.db")
+        print(sqlite3.version)
+    except Error as e:
+        print(e)
+
+    return conn
 
 
 class orderlines_obj:
