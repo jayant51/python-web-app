@@ -13,7 +13,7 @@ from sqlite3 import Error
 import json
 import os
 
-conn = None
+connection = None
 count = 0
 app = Flask(__name__)
 
@@ -36,7 +36,7 @@ def po():
 def createOrderLines(poLns):
 
     # connection = sqlite3.connect("supplychain.db")
-    connection = create_connection()
+    # connection = create_connection()
 
     try:
         cursor = connection.cursor()
@@ -279,10 +279,9 @@ def init():
         cursor.execute("insert into PurchaseOrder (createdby) values ('System')")
         connection.commit()
 
-        """ 
         poLns = orderlines_obj()
         createOrderLines(poLns)
-
+        """ 
         poLn = orderline_obj()
         createOrderLine(poLn)
 
@@ -502,19 +501,19 @@ def create():
 def create_connection():
     print("create a database connection to a database that resides in the memory")
     global count
-    global conn
-    count += 1
+    global connection
 
     # rc = sqlite3_open("file::memory:?cache=shared", &db);
     try:
-        if conn is None:
-            conn = sqlite3.connect(":memory:")
+        if connection is None:
+            connection = sqlite3.connect(":memory:")
+            count += 1
         # conn = sqlite3.connect(r"./schema/supplychain.db")
         print(sqlite3.version)
     except Error as e:
         print(e)
     print("count = " + str(count))
-    return conn
+    return connection
 
 
 class orderlines_obj:
