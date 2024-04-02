@@ -296,9 +296,9 @@ def init():
 
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return render_template("pages/po_entry.html")
 
 
@@ -398,9 +398,9 @@ def getpo():
         cur.close()
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return std_po
 
 
@@ -491,9 +491,9 @@ def create():
 
     except sqlite3.Error as error:
         print("Failed to perform operations with sqlite ", error)
-    finally:
-        if connection:
-            connection.close()
+    # finally:
+    # if connection:
+    # connection.close()
     return render_template("pages/create.html")
 
 
