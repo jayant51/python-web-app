@@ -444,6 +444,7 @@ def create():
             orderlines.OrderNo = request.form["orderNum"]
             orderNum = int(request.form["orderNum"]) + 1
             request.form["orderNum"] = str(orderNum)
+            request.form["uPrice"] = "99897987"
 
             orderlines.CustomerPONo = request.form["custPONum"]
             createOrderLines(orderlines)
