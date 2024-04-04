@@ -442,7 +442,7 @@ def create():
             priceinfo = linepriceinfo_obj
 
             # orderlines.OrderNo = request.form["orderNum"]
-            orderlines.OrderNo = ""
+            orderlines.OrderNo = "ATOS_PO_"
 
             orderlines.CustomerPONo = request.form["custPONum"]
             createOrderLines(orderlines)
@@ -518,7 +518,7 @@ def create_connection():
 class orderlines_obj:
     VendorID = ""
     DocumentType = "0005"
-    OrderNo = "PO_2024020903"
+    OrderNo = "ATOS_PO_"
     Purpose = "Purchase Order"
     CustomerEmailId = "person@vendor1.com"
     CustomerPONo = "C123456-4"
