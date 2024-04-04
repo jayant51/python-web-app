@@ -441,11 +441,8 @@ def create():
             personInfoSoldTo = personInfo_obj
             priceinfo = linepriceinfo_obj
 
-            orderlines.OrderNo = request.form["orderNum"]
-            orderNum = request.form["orderNum"]
-
-            # request.form["orderNum"] = str(orderNum)
-            # request.form["uPrice"] = "99897987"
+            # orderlines.OrderNo = request.form["orderNum"]
+            orderlines.OrderNo = ""
 
             orderlines.CustomerPONo = request.form["custPONum"]
             createOrderLines(orderlines)
