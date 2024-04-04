@@ -447,6 +447,7 @@ def create():
             orderlines.OrderNo = "ATOS_PO_"
 
             orderlines.CustomerPONo = request.form["custPONum"]
+            orderlines.OrderDate = str(gettimestamp())
             createOrderLines(orderlines)
 
             orderline.DeliveryCode = request.form["dcode"]
@@ -517,6 +518,17 @@ def create_connection():
     return connection
 
 
+def gettimestamp():
+    gmt = time.gmtime()
+    print("gmt:-", gmt)
+
+    # ts stores timestamp
+    ts = calendar.timegm(gmt)
+    print("timestamp:-", ts)
+
+    return ts
+
+
 class orderlines_obj:
     VendorID = ""
     DocumentType = "0005"
@@ -524,7 +536,7 @@ class orderlines_obj:
     Purpose = "Purchase Order"
     CustomerEmailId = "person@vendor1.com"
     CustomerPONo = "C123456-4"
-    OrderDate = ""
+    OrderDate = str(gettimestamp())
     EntryType = "WEB"
     OrderType = "B2B"
     Division = "ATOS"
